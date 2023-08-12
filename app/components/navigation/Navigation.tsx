@@ -13,7 +13,7 @@ export default function Navigation() {
 
 				<ul className='flex justify-between w-full sm:w-auto sm:items-center'>
 					<li className='hidden mr-6 sm:flex'>
-						<Link href={'/interests'}>Interests</Link>
+						<Link href={'/dashboard'}>Dashboard</Link>
 					</li>
 					{/* 
 					<li className='hidden mr-6 sm:flex'>
