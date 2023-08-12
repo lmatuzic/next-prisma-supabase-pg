@@ -1,3 +1,4 @@
+import { TestForm } from "./components/TestForm";
 import { prisma } from "./lib/prisma";
 
 export default async function Home() {
@@ -9,8 +10,18 @@ export default async function Home() {
     where: { id: 11 },
   });
 
+  const createCategory = async (name: string) => {
+    "use server";
+
+    await prisma.category.create({
+      data: {
+        name,
+      },
+    });
+  };
+
   return (
-    <main className="grid place-items-center p-24">
+    <main className="grid p-24 place-items-center">
       <h1>Homepage</h1>
 
       <div className="mt-12">
@@ -22,6 +33,8 @@ export default async function Home() {
         <h1>Posts</h1>
         {user?.name}
       </div>
+
+      <TestForm createCategory={createCategory} />
     </main>
   );
 }
