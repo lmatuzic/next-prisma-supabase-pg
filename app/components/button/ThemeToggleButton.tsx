@@ -5,11 +5,11 @@ import {
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from '@radix-ui/react-dropdown-menu';
+} from '@/app/components/shadcn/DropdownMenu';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { useTheme } from 'next-themes';
 import { useId } from 'react';
-import { Button } from '../shadcn/button';
+import { Button } from '@/app/components/shadcn/Button';
 
 export default function ThemeToggleButton() {
 	const { setTheme } = useTheme();

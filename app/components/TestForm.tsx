@@ -3,9 +3,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { prisma } from '../lib/prisma/prisma';
 
-import { Button } from '@/app/components/shadcn/button';
+import { Button } from '@/app/components/shadcn/Button';
 import {
 	Form,
 	FormControl,
@@ -13,13 +12,10 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '@/app/components/shadcn/form';
-import { Input } from '@/app/components/shadcn/input';
+} from '@/app/components/shadcn/Form';
+import { Input } from '@/app/components/shadcn/Input';
 
 const FormSchema = z.object({
-	// email: z.string().email({ message: "Invalid email address" }),
-	// password: z.string().min(4),
-	// name: z.string().min(2),
 	name: z.string().min(2),
 });
 

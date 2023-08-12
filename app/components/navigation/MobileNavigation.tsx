@@ -1,5 +1,5 @@
 import { Menu } from 'lucide-react';
-import { Sheet, SheetContent, SheetDescription, SheetTrigger } from '../shadcn/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetTrigger } from '../shadcn/Sheet';
 
 export default function MobileNavigation() {
 	return (
