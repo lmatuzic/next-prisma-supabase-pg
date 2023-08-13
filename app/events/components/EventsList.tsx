@@ -1,20 +1,15 @@
-'use client';
-
-import { useEffect } from 'react';
-import { EventsPrismaResponse, UserEvent } from '../types/UserEvent';
+import { EventsPrismaResponse } from '../types/UserEvent';
+import Event from './Event';
 
 interface EventsListProps {
-	events: EventsPrismaResponse;
+	events: EventsPrismaResponse[];
 }
 
 export default function EventsList({ events }: EventsListProps) {
 	return (
-		<div>
+		<div className='grid gap-4 mt-12 md:grid-cols-2 lg:grid-cols-4'>
 			{events.map((event) => (
-				<div key={event.id}>
-					<h2>{event.name}</h2>
-					<div>{event.location}</div>
-				</div>
+				<Event event={event} key={event.id} />
 			))}
 		</div>
 	);

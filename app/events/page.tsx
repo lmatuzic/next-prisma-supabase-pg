@@ -8,7 +8,7 @@ export default async function EventsPage() {
 	return (
 		<main className='container'>
 			<header className='flex items-center justify-between'>
-				<h1>Events</h1>
+				<h1 className='text-2xl'>Events</h1>
 				<CreateEventDialog />
 			</header>
 
