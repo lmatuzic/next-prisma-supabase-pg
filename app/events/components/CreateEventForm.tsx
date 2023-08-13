@@ -1,7 +1,7 @@
 'use client';
 
-import { DatePicker } from '@/app/components/date/DatePicker';
-import { Button } from '@/app/components/shadcn/Button';
+import { DatePicker } from '@/app/(ui)/components/date/DatePicker';
+import { Button } from '@/app/(ui)/components/shadcn/Button';
 import {
 	FormContextProvider,
 	FormControl,
@@ -9,24 +9,20 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '@/app/components/shadcn/Form';
-import { Input } from '@/app/components/shadcn/Input';
-import { Textarea } from '@/app/components/shadcn/Textarea';
+} from '@/app/(ui)/components/shadcn/Form';
+import { Input } from '@/app/(ui)/components/shadcn/Input';
+import { Textarea } from '@/app/(ui)/components/shadcn/Textarea';
+import { CreateEventFormSchema } from '@/app/lib/zod/schemas/CreateEventFormSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as zod from 'zod';
+import { UserEvent } from '../types/UserEvent';
 
-const CreateEventFormSchema = zod.object({
-	name: zod.string().nonempty(),
-	location: zod.string().nonempty(),
-	date: zod.date({
-		required_error: 'Please select a date and time',
-		invalid_type_error: "That's not a date!",
-	}),
-	description: zod.string().min(5),
-});
+interface CreateEventFormProps {
+	createEvent: (userEvent: UserEvent) => Promise<void>;
+}
 
-export default function CreateEventForm() {
+export default function CreateEventForm({ createEvent }: CreateEventFormProps) {
 	const form = useForm<zod.infer<typeof CreateEventFormSchema>>({
 		resolver: zodResolver(CreateEventFormSchema),
 		defaultValues: {
@@ -37,9 +33,18 @@ export default function CreateEventForm() {
 		},
 	});
 
+	async function handleCreateEvent(data: UserEvent) {
+		await createEvent({
+			name: data.name,
+			location: data.location,
+			date: data.date,
+			description: data.description,
+		});
+	}
+
 	return (
 		<FormContextProvider {...form}>
-			<form onSubmit={form.handleSubmit(() => console.log('test'))} className='w-full space-y-6'>
+			<form onSubmit={form.handleSubmit(handleCreateEvent)} className='w-full space-y-6'>
 				<FormField
 					control={form.control}
 					name='name'

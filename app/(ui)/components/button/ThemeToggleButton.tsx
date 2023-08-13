@@ -1,12 +1,12 @@
 'use client';
 
-import { Button } from '@/app/components/shadcn/Button';
+import { Button } from '@/app/(ui)/components/shadcn/Button';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from '@/app/components/shadcn/DropdownMenu';
+} from '@/app/(ui)/components/shadcn/DropdownMenu';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { useTheme } from 'next-themes';
 import { useId } from 'react';

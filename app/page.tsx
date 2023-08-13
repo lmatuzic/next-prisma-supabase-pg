@@ -1,4 +1,4 @@
-import { TestForm } from './components/TestForm';
+import { TestForm } from './(ui)/components/TestForm';
 import { prisma } from './lib/prisma/prisma';
 
 export default async function Home() {

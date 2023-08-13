@@ -1,4 +1,4 @@
-import { Button } from '@/app/components/shadcn/Button';
+import { Button } from '@/app/(ui)/components/shadcn/Button';
 import {
 	Dialog,
 	DialogContent,
@@ -6,8 +6,9 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-} from '@/app/components/shadcn/Dialog';
-import { Separator } from '@/app/components/shadcn/Separator';
+} from '@/app/(ui)/components/shadcn/Dialog';
+import { Separator } from '@/app/(ui)/components/shadcn/Separator';
+import { createEvent } from '../actions/createEvent';
 import CreateEventForm from './CreateEventForm';
 
 export default function CreateEventDialog() {
@@ -29,7 +30,7 @@ export default function CreateEventDialog() {
 
 				<Separator />
 
-				<CreateEventForm />
+				<CreateEventForm createEvent={createEvent} />
 			</DialogContent>
 		</Dialog>
 	);

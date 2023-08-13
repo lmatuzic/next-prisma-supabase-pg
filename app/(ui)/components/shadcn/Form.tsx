@@ -11,7 +11,7 @@ import {
 } from 'react-hook-form';
 
 import { cn } from '@/app/lib/utils';
-import { Label } from '@/app/components/shadcn/Label';
+import { Label } from '@/app/(ui)/components/shadcn/Label';
 
 const FormContextProvider = FormProvider;
 

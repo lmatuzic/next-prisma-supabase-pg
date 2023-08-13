@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/app/components/shadcn/Button';
+import { Button } from '@/app/(ui)/components/shadcn/Button';
 import {
 	FormContextProvider,
 	FormControl,
@@ -8,8 +8,8 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '@/app/components/shadcn/Form';
-import { Input } from '@/app/components/shadcn/Input';
+} from '@/app/(ui)/components/shadcn/Form';
+import { Input } from '@/app/(ui)/components/shadcn/Input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';

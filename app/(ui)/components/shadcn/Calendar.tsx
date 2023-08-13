@@ -1,6 +1,6 @@
 'use client';
 
-import { buttonVariants } from '@/app/components/shadcn/Button';
+import { buttonVariants } from '@/app/(ui)/components/shadcn/Button';
 import { cn } from '@/app/lib/utils';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import * as React from 'react';

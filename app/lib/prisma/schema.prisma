@@ -6,9 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider   = "postgresql"
-  url        = env("DATABASE_URL")
-  directUrl  = env("DIRECT_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
@@ -36,13 +36,21 @@ model Post {
   published  Boolean    @default(false)
   author     User       @relation(fields: [authorId], references: [id])
   authorId   Int
-  // categories Category[]
+  categories Category[]
 }
 
 model Category {
   id    Int    @id @default(autoincrement())
   name  String
-  // posts Post[]
+  posts Post[]
+}
+
+model Event {
+  id          Int      @id @default(autoincrement())
+  name        String
+  location    String
+  date        DateTime
+  description String
 }
 
 enum Role {
