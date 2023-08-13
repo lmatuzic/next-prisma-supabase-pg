@@ -16,9 +16,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	return (
 		<ClerkProvider
 			appearance={{
-				variables: {
-					colorPrimary: '#141414',
-				},
 				elements: {
 					card: {
 						boxShadow: 'none',
@@ -30,7 +27,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 			}}
 		>
 			<html lang='en' className='min-h-screen'>
-				<body className={`grid place-items-center ${inter.className}`}>
+				<body className={`grid ${inter.className}`}>
 					<Providers>
 						<Navigation />
 						{children}

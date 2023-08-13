@@ -1,12 +1,8 @@
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
-
 import { Button } from '@/app/components/shadcn/Button';
 import {
-	Form,
+	FormContextProvider,
 	FormControl,
 	FormField,
 	FormItem,
@@ -14,6 +10,9 @@ import {
 	FormMessage,
 } from '@/app/components/shadcn/Form';
 import { Input } from '@/app/components/shadcn/Input';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import * as z from 'zod';
 
 const FormSchema = z.object({
 	name: z.string().min(2),
@@ -36,7 +35,7 @@ export function TestForm({ createCategory }: TestFormProps) {
 	}
 
 	return (
-		<Form {...form}>
+		<FormContextProvider {...form}>
 			<form onSubmit={form.handleSubmit(onSubmit)} className='w-2/3 space-y-6'>
 				<FormField
 					control={form.control}
@@ -55,6 +54,6 @@ export function TestForm({ createCategory }: TestFormProps) {
 
 				<Button type='submit'>Submit</Button>
 			</form>
-		</Form>
+		</FormContextProvider>
 	);
 }

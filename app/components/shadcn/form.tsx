@@ -13,7 +13,7 @@ import {
 import { cn } from '@/app/lib/utils';
 import { Label } from '@/app/components/shadcn/Label';
 
-const Form = FormProvider;
+const FormContextProvider = FormProvider;
 
 type FormFieldContextValue<
 	TFieldValues extends FieldValues = FieldValues,
@@ -157,7 +157,7 @@ FormMessage.displayName = 'FormMessage';
 
 export {
 	useFormField,
-	Form,
+	FormContextProvider,
 	FormItem,
 	FormLabel,
 	FormControl,

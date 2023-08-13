@@ -1,13 +1,10 @@
-import { UserButton } from '@clerk/nextjs';
+import { UserButton, currentUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import ThemeToggleButton from '../button/ThemeToggleButton';
 import MobileNavigation from './MobileNavigation';
-import { currentUser } from '@clerk/nextjs';
 
 export default async function Navigation() {
 	const user = await currentUser();
-
-	console.log(user?.firstName);
 
 	return (
 		<nav className='w-full px-4 py-2 mb-8 border-b'>
@@ -19,7 +16,7 @@ export default async function Navigation() {
 				<ul className='flex justify-between w-full sm:w-auto sm:items-center'>
 					{user && (
 						<li className='hidden mr-6 sm:flex'>
-							<Link href={'/dashboard'}>Dashboard</Link>
+							<Link href={'/events'}>Events</Link>
 						</li>
 					)}
 

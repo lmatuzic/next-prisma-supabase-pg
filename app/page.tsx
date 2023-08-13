@@ -21,7 +21,7 @@ export default async function Home() {
 	};
 
 	return (
-		<main className='grid p-24 place-items-center'>
+		<main className='container'>
 			<h1>Homepage</h1>
 
 			<div className='mt-12'>
