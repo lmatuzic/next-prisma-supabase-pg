@@ -9,7 +9,8 @@ import { Calendar } from '../shadcn/Calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '../shadcn/Popover';
 
 export function DatePicker() {
-	const [date, setDate] = useState<Date>();
+	const today = new Date();
+	const [date, setDate] = useState<Date>(today);
 
 	return (
 		<Popover>

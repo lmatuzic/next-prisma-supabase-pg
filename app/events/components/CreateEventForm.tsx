@@ -14,22 +14,26 @@ import { Input } from '@/app/components/shadcn/Input';
 import { Textarea } from '@/app/components/shadcn/Textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import * as z from 'zod';
+import * as zod from 'zod';
 
-const CreateEventFormSchema = z.object({
-	name: z.string().min(2),
-	location: z.string(),
-	description: z.string().min(20),
-	date: z.date(),
+const CreateEventFormSchema = zod.object({
+	name: zod.string().nonempty(),
+	location: zod.string().nonempty(),
+	date: zod.date({
+		required_error: 'Please select a date and time',
+		invalid_type_error: "That's not a date!",
+	}),
+	description: zod.string().min(5),
 });
 
 export default function CreateEventForm() {
-	const form = useForm<z.infer<typeof CreateEventFormSchema>>({
+	const form = useForm<zod.infer<typeof CreateEventFormSchema>>({
 		resolver: zodResolver(CreateEventFormSchema),
 		defaultValues: {
 			name: '',
-			description: '',
+			location: '',
 			date: new Date(),
+			description: '',
 		},
 	});
 
@@ -57,10 +61,10 @@ export default function CreateEventForm() {
 					name='location'
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Name</FormLabel>
+							<FormLabel>Location</FormLabel>
 
 							<FormControl>
-								<Input placeholder='Enter name' {...field} />
+								<Input placeholder='Enter location' {...field} />
 							</FormControl>
 
 							<FormMessage />
