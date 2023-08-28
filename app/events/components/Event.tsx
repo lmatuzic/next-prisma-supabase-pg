@@ -19,9 +19,12 @@ export default function Event({ event }: EventProps) {
 			<Card>
 				<CardHeader>
 					<CardTitle>{event.name}</CardTitle>
-					<CardDescription>{event.location}</CardDescription>
+					<CardDescription>{event.date.toLocaleDateString()}</CardDescription>
 				</CardHeader>
-				<CardContent>{event.description}</CardContent>
+
+				<CardContent>
+					<p>{event.description}</p>
+				</CardContent>
 			</Card>
 		</Link>
 	);

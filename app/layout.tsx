@@ -16,6 +16,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	return (
 		<ClerkProvider
 			appearance={{
+				variables: {
+					// https://mycolor.space/?hex=%23141414&sub=1 --> Highlight Palette
+					colorPrimary: '#068488',
+				},
 				elements: {
 					card: {
 						boxShadow: 'none',

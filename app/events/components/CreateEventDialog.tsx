@@ -10,8 +10,11 @@ import {
 import { Separator } from '@/app/(ui)/components/shadcn/Separator';
 import { createEvent } from '../actions/createEvent';
 import CreateEventForm from './CreateEventForm';
+import { currentUser } from '@clerk/nextjs';
 
-export default function CreateEventDialog() {
+export default async function CreateEventDialog() {
+	const user = await currentUser();
+
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
@@ -30,7 +33,7 @@ export default function CreateEventDialog() {
 
 				<Separator />
 
-				<CreateEventForm createEvent={createEvent} />
+				<CreateEventForm createEvent={createEvent} user={user} />
 			</DialogContent>
 		</Dialog>
 	);

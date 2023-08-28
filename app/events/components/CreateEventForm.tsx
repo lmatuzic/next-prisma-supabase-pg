@@ -17,12 +17,15 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as zod from 'zod';
 import { UserEvent } from '../types/UserEvent';
+import { currentUser } from '@clerk/nextjs';
+import { User } from '@clerk/nextjs/server';
 
 interface CreateEventFormProps {
-	createEvent: (userEvent: UserEvent) => Promise<void>;
+	createEvent: (userEvent: UserEvent, user: User | null) => Promise<void>;
+	user: User | null;
 }
 
-export default function CreateEventForm({ createEvent }: CreateEventFormProps) {
+export default function CreateEventForm({ createEvent, user }: CreateEventFormProps) {
 	const form = useForm<zod.infer<typeof CreateEventFormSchema>>({
 		resolver: zodResolver(CreateEventFormSchema),
 		defaultValues: {
@@ -33,13 +36,9 @@ export default function CreateEventForm({ createEvent }: CreateEventFormProps) {
 		},
 	});
 
-	async function handleCreateEvent(data: UserEvent) {
-		await createEvent({
-			name: data.name,
-			location: data.location,
-			date: data.date,
-			description: data.description,
-		});
+	async function handleCreateEvent(data: zod.infer<typeof CreateEventFormSchema>) {
+		const combinedData = { ...data, creator: user };
+		await createEvent(combinedData, user);
 	}
 
 	return (
