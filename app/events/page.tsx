@@ -2,6 +2,8 @@ import { getAllEvents } from './actions/getAllEvents';
 import CreateEventDialog from './components/CreateEventDialog';
 import EventsList from './components/EventsList';
 
+export const revalidate = 1;
+
 export default async function EventsPage() {
 	const events = await getAllEvents();
 

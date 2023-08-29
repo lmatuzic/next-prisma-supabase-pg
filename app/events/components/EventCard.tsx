@@ -7,9 +7,12 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/app/(ui)/components/shadcn/Card';
-import { CalendarDays, MapPin, User2, Star, Check } from 'lucide-react';
+import { CalendarDays, MapPin, User2 } from 'lucide-react';
 import Link from 'next/link';
+import { updateEventGoings } from '../actions/updateEventGoings';
+import { updateEventInterests } from '../actions/updateEventInterests';
 import { EventsPrismaResponse } from '../types/UserEvent';
+import EventActions from './EventActions';
 
 interface EventProps {
 	event: EventsPrismaResponse;
@@ -21,17 +24,11 @@ export default function EventCard({ event }: EventProps) {
 			<CardHeader>
 				<CardTitle className='text-2xl'>{event.name}</CardTitle>
 
-				<div className='mt-8'>
-					<Button variant='outline' size={'sm'} className='mr-4'>
-						<Star className='mr-2' size={'16'} />
-						<span className='text-xs'>Going</span>
-					</Button>
-
-					<Button variant='outline' size={'sm'}>
-						<Check className='mr-2' size={'16'} />
-						<span className='text-xs'>Interested</span>
-					</Button>
-				</div>
+				<EventActions
+					event={event}
+					updateEventGoings={updateEventGoings}
+					updateEventInterests={updateEventInterests}
+				/>
 			</CardHeader>
 
 			<CardContent>

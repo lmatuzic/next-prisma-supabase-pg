@@ -2,7 +2,7 @@ import { prisma } from '@/app/lib/prisma/prisma';
 import { EventsPrismaResponse } from '../types/UserEvent';
 import { revalidatePath } from 'next/cache';
 
-export const updateEventGoings = async (event: EventsPrismaResponse) => {
+export const updateEventInterests = async (event: EventsPrismaResponse) => {
 	'use server';
 
 	await prisma.event.update({
@@ -10,7 +10,7 @@ export const updateEventGoings = async (event: EventsPrismaResponse) => {
 			id: event.id,
 		},
 		data: {
-			peopleGoing: {
+			peopleInterested: {
 				increment: 1,
 			},
 		},

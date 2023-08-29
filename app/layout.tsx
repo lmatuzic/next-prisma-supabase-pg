@@ -1,9 +1,9 @@
+import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Navigation from './(ui)/components/navigation/Navigation';
 import './globals.css';
 import Providers from './providers/Providers';
-import Navigation from './(ui)/components/navigation/Navigation';
-import { ClerkProvider } from '@clerk/nextjs';
 
 const inter = Inter({ subsets: ['latin'] });
 
