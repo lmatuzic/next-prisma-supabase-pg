@@ -17,6 +17,8 @@ export const createEvent = async (userEvent: UserEvent, user: User | null) => {
 			description: userEvent.description,
 			creatorEmail: user.emailAddresses[0].emailAddress,
 			creatorUsername: `${user.firstName} ${user.lastName}`,
+			peopleGoing: 0,
+			peopleInterested: 0,
 		},
 	});
 };

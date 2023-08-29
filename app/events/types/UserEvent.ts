@@ -14,4 +14,8 @@ export type EventsPrismaResponse = {
 	location: string;
 	date: Date;
 	description: string;
+	creatorEmail: string;
+	creatorUsername: string;
+	peopleGoing: number;
+	peopleInterested: number;
 };
