@@ -36,8 +36,6 @@ export default function EventActions({
 		});
 	};
 
-	updateEventInterests;
-
 	return (
 		<div className='mt-8'>
 			<Button onClick={handleUpdateEventGoings} variant='outline' size={'sm'} className='mr-4'>
