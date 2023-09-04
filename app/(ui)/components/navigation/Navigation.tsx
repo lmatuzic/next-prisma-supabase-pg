@@ -7,8 +7,8 @@ export default async function Navigation() {
 	const user = await currentUser();
 
 	return (
-		<nav className='w-full px-4 py-2 mb-8 border-b'>
-			<div className='container flex items-center justify-between p-0'>
+		<nav className='w-full py-2 mb-8 border-b'>
+			<div className='container flex items-center justify-between'>
 				<Link href={'/'} className='hidden sm:flex'>
 					Logo
 				</Link>
