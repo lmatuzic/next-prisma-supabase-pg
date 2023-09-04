@@ -13,7 +13,7 @@ import { updateEventGoings } from '../actions/updateEventGoings';
 import { updateEventInterests } from '../actions/updateEventInterests';
 import { EventsPrismaResponse } from '../types/UserEvent';
 import EventActions from './EventActions';
-import { EVENTS_PAGE } from '@/app/constants/routePaths';
+import { EVENTS_PAGE } from '@/app/constants/routes';
 
 interface EventProps {
 	event: EventsPrismaResponse;

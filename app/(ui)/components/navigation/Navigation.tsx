@@ -1,4 +1,4 @@
-import { EVENTS_PAGE, HOME_PAGE } from '@/app/constants/routePaths';
+import { EVENTS_PAGE, HOME_PAGE } from '@/app/constants/routes';
 import { UserButton, currentUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import ThemeToggleButton from '../button/ThemeToggleButton';

@@ -1,4 +1,4 @@
-import { EVENTS_PAGE } from '@/app/constants/routePaths';
+import { EVENTS_PAGE } from '@/app/constants/routes';
 import { prisma } from '@/app/lib/prisma/prisma';
 import { revalidatePath } from 'next/cache';
 import { EventsPrismaResponse } from '../types/UserEvent';
