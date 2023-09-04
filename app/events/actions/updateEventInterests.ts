@@ -1,6 +1,7 @@
 import { prisma } from '@/app/lib/prisma/prisma';
 import { EventsPrismaResponse } from '../types/UserEvent';
 import { revalidatePath } from 'next/cache';
+import { EVENTS_PAGE } from '@/app/constants/routePaths';
 
 export const updateEventInterests = async (event: EventsPrismaResponse) => {
 	'use server';
@@ -16,5 +17,5 @@ export const updateEventInterests = async (event: EventsPrismaResponse) => {
 		},
 	});
 
-	revalidatePath('/events');
+	revalidatePath(EVENTS_PAGE);
 };

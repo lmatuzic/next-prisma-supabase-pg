@@ -1,3 +1,4 @@
+import { EVENTS_PAGE, HOME_PAGE } from '@/app/constants/routePaths';
 import { UserButton, currentUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import ThemeToggleButton from '../button/ThemeToggleButton';
@@ -9,20 +10,20 @@ export default async function Navigation() {
 	return (
 		<nav className='w-full py-2 mb-8 border-b'>
 			<div className='container flex items-center justify-between'>
-				<Link href={'/'} className='hidden sm:flex'>
+				<Link href={HOME_PAGE} className='hidden sm:flex'>
 					Logo
 				</Link>
 
 				<ul className='flex justify-between w-full sm:w-auto sm:items-center'>
 					{user && (
 						<li className='hidden mr-6 sm:flex'>
-							<Link href={'/events'}>Events</Link>
+							<Link href={EVENTS_PAGE}>Events</Link>
 						</li>
 					)}
 
 					{user && (
 						<li className='hidden mr-6 sm:flex'>
-							<UserButton afterSignOutUrl='/' />
+							<UserButton afterSignOutUrl={HOME_PAGE} />
 						</li>
 					)}
 

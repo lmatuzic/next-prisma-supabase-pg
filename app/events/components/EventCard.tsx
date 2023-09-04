@@ -13,6 +13,7 @@ import { updateEventGoings } from '../actions/updateEventGoings';
 import { updateEventInterests } from '../actions/updateEventInterests';
 import { EventsPrismaResponse } from '../types/UserEvent';
 import EventActions from './EventActions';
+import { EVENTS_PAGE } from '@/app/constants/routePaths';
 
 interface EventProps {
 	event: EventsPrismaResponse;
@@ -66,7 +67,7 @@ export default function EventCard({ event }: EventProps) {
 			</CardContent>
 
 			<CardFooter className='flex-col items-start text-sm '>
-				<Link href={`/events/${event.id}`} className='w-full mt-6'>
+				<Link href={`${EVENTS_PAGE}/${event.id}`} className='w-full mt-6'>
 					<Button className='w-full'>See more</Button>
 				</Link>
 			</CardFooter>
