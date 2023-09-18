@@ -1,7 +1,7 @@
+import { EVENTS_PAGE } from '@/app/constants/routes';
+import notFound from '@/app/not-found';
 import Link from 'next/link';
 import { getEvent } from '../actions/getEvent';
-import notFound from './not-found';
-import { EVENTS_PAGE } from '@/app/constants/routes';
 
 interface EventDetailsProps {
 	params: {

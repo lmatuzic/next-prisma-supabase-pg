@@ -7,13 +7,13 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/app/(ui)/components/shadcn/Card';
+import { EVENTS_PAGE } from '@/app/constants/routes';
 import { CalendarDays, MapPin, User2 } from 'lucide-react';
 import Link from 'next/link';
 import { updateEventGoings } from '../actions/updateEventGoings';
 import { updateEventInterests } from '../actions/updateEventInterests';
 import { EventsPrismaResponse } from '../types/UserEvent';
 import EventActions from './EventActions';
-import { EVENTS_PAGE } from '@/app/constants/routes';
 
 interface EventProps {
 	event: EventsPrismaResponse;
